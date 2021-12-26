@@ -49,6 +49,26 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `APPS TITLE`
+  String get appTitle {
+    return Intl.message(
+      'APPS TITLE',
+      name: 'appTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `AppBar Title`
+  String get appBarTitle {
+    return Intl.message(
+      'AppBar Title',
+      name: 'appBarTitle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
