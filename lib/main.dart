@@ -1,3 +1,4 @@
+import 'package:fa_anipi/constants/const.dart';
 import 'package:fa_anipi/themes/theme_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -6,7 +7,11 @@ import 'generated/l10n.dart';
 import 'themes/default_theme/default_theme.dart';
 
 void main() {
-  runApp(const App());
+  runApp(
+    const Const(
+      child: App(),
+    ),
+  );
 }
 
 ThemeManager _themeManager = ThemeManager();
@@ -93,6 +98,9 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Text(
+              'Constant: ${Const.of(context)!.testValue}',
+            ),
             const Text(
               'You have pushed the button this many times:',
             ),
