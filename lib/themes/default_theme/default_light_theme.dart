@@ -1,7 +1,8 @@
 import 'package:fa_anipi/themes/default_theme/default_theme_colors.dart';
+import 'package:fa_anipi/themes/default_theme/default_theme_common.dart';
 import 'package:flutter/material.dart';
 
-final defaultLightTheme = ThemeData(
+final defaultLightTheme = defaultThemeCommon.copyWith(
 //#############################################################
 // #region Colors
   primaryColor: DefaultThemeColors.primaryColorLight,
@@ -9,12 +10,6 @@ final defaultLightTheme = ThemeData(
 
 //############################################################
 // Fonts
-  fontFamily: 'Tahoma',
-  textTheme: const TextTheme(
-    headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
-    headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-    bodyText2: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
-  ),
 
 //############################################################
 // Widgets
@@ -28,10 +23,7 @@ final defaultLightTheme = ThemeData(
         DefaultThemeColors.floatingActionButtonBackgroundColorLight,
   ),
 
-  buttonTheme: ButtonThemeData(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(18.0),
-    ),
+  buttonTheme: const ButtonThemeData(
     buttonColor: DefaultThemeColors.buttonColorLight,
   ),
 );

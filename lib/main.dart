@@ -56,7 +56,7 @@ class _AppState extends State<App> {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      title: 'Flutter Demo',
+      title: 'AniAPI',
       theme: _currentTheme.lightTheme,
       darkTheme: _currentTheme.darkTheme,
       themeMode: _themeManager.themeMode,

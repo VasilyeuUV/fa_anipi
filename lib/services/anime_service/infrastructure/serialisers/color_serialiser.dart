@@ -8,10 +8,11 @@ class ColorSerialiser implements JsonConverter<Color, String?> {
 
   @override
   Color fromJson(String? json) {
-    int? code = int.tryParse(json);
+    int? code = int.tryParse(json!, radix: 16);
     return code == null ? defaultColor : Color(code);
   }
 
   @override
-  int toJson(Color color) => color == null ? defaultColor : color.value;
+  String toJson(Color color) =>
+      '#${color.value.toRadixString(16).substring(2, 8)}';
 }
