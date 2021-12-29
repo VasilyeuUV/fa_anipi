@@ -69,6 +69,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Loading...`
+  String get loading {
+    return Intl.message(
+      'Loading...',
+      name: 'loading',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nothing found`
+  String get nothingFound {
+    return Intl.message(
+      'Nothing found',
+      name: 'nothingFound',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

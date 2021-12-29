@@ -5,8 +5,9 @@ class DefaultThemeColors {
 
 // COMMON
   static const Color headlineColor = Colors.white;
-  static const Color bodyTextColor = Colors.black;
+  static const Color bodyTextColor = Colors.yellow;
   static const Color captionColor = Colors.grey;
+  static const Color containerBoxDecoration = Colors.black87;
 
 // LIGHT THEME
   static const Color primaryColorLight = Colors.purple;
