@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_annotation_target
+
 import 'package:fa_anipi/services/anime_service/infrastructure/enums/format_show_enum.dart';
 import 'package:fa_anipi/services/anime_service/infrastructure/enums/season_period_enum.dart';
 import 'package:fa_anipi/services/anime_service/infrastructure/enums/status_enum.dart';
@@ -15,10 +17,10 @@ class AnimeModel with _$AnimeModel {
     required int id,
 
     /// Anime list id
-    required int? aniListId,
+    @JsonKey(name: 'anilist_id') int? aniListId,
 
     /// My anime list id
-    required int? myAniListId,
+    @JsonKey(name: 'mal_id') int? myAniListId,
 
     /// The show's format destination
     required FormatShowEnum format,
@@ -33,46 +35,44 @@ class AnimeModel with _$AnimeModel {
     required Map<String, String> descriptions,
 
     /// The show's global release date
-    required DateTime? startDate,
+    DateTime? startDate,
 
     /// The known show's global end date
-    required DateTime? endDate,
+    DateTime? endDate,
 
     /// The season on which the show has been released
     required SeasonPeriodEnum seasonPeriod,
 
     /// The year on which the show has been released
-    required int? seasonYear,
+    int? seasonYear,
 
     /// Number of episodes released for the show
     required int episodesCount,
 
     /// The show's episode average duration in minutes
-    required int? episodeDuration,
+    int? episodeDuration,
 
     /// External link to the show's trailer video
     /// Possible services: Youtube, Dailymotion
-    required String? trailerUrl,
+    String? trailerUrl,
 
     /// The show's cover image url
-    required String coverImageUrl,
+    @JsonKey(name: 'cover_image') required String coverImageUrl,
 
     /// The show's cover main color, in HEX format
-    @ColorSerialiser()
-    @Default(ColorSerialiser.defaultColor)
-        required Color coverColor,
+    @ColorSerialiser() @Default(ColorSerialiser.defaultColor) Color coverColor,
 
     /// The show's banner image
-    required String? bannerImageUrl,
+    @JsonKey(name: 'banner_image') String? bannerImageUrl,
 
     /// A collection of the show's associated genres.
     required List<String> genres,
 
     /// The show's precedent Anime's unique identifier in story-line
-    required int? sequel,
+    int? sequel,
 
     /// The show's successive Anime's unique identifier in story-line
-    required int? prequel,
+    int? prequel,
 
     /// The show's global appreciation indicator.
     /// Minimum value is 0 and maximum is 100

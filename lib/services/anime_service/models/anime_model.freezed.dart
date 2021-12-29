@@ -23,26 +23,25 @@ class _$AnimeModelTearOff {
 
   _AnimeModel call(
       {required int id,
-      required int? aniListId,
-      required int? myAniListId,
+      @JsonKey(name: 'anilist_id') int? aniListId,
+      @JsonKey(name: 'mal_id') int? myAniListId,
       required FormatShowEnum format,
       required StatusEnum status,
       required Map<String, String> titles,
       required Map<String, String> descriptions,
-      required DateTime? startDate,
-      required DateTime? endDate,
+      DateTime? startDate,
+      DateTime? endDate,
       required SeasonPeriodEnum seasonPeriod,
-      required int? seasonYear,
+      int? seasonYear,
       required int episodesCount,
-      required int? episodeDuration,
-      required String? trailerUrl,
-      required String coverImageUrl,
-      @ColorSerialiser()
-          required Color coverColor = ColorSerialiser.defaultColor,
-      required String? bannerImageUrl,
+      int? episodeDuration,
+      String? trailerUrl,
+      @JsonKey(name: 'cover_image') required String coverImageUrl,
+      @ColorSerialiser() Color coverColor = ColorSerialiser.defaultColor,
+      @JsonKey(name: 'banner_image') String? bannerImageUrl,
       required List<String> genres,
-      required int? sequel,
-      required int? prequel,
+      int? sequel,
+      int? prequel,
       required double score}) {
     return _AnimeModel(
       id: id,
@@ -83,9 +82,11 @@ mixin _$AnimeModel {
   int get id => throw _privateConstructorUsedError;
 
   /// Anime list id
+  @JsonKey(name: 'anilist_id')
   int? get aniListId => throw _privateConstructorUsedError;
 
   /// My anime list id
+  @JsonKey(name: 'mal_id')
   int? get myAniListId => throw _privateConstructorUsedError;
 
   /// The show's format destination
@@ -123,6 +124,7 @@ mixin _$AnimeModel {
   String? get trailerUrl => throw _privateConstructorUsedError;
 
   /// The show's cover image url
+  @JsonKey(name: 'cover_image')
   String get coverImageUrl => throw _privateConstructorUsedError;
 
   /// The show's cover main color, in HEX format
@@ -130,6 +132,7 @@ mixin _$AnimeModel {
   Color get coverColor => throw _privateConstructorUsedError;
 
   /// The show's banner image
+  @JsonKey(name: 'banner_image')
   String? get bannerImageUrl => throw _privateConstructorUsedError;
 
   /// A collection of the show's associated genres.
@@ -158,8 +161,8 @@ abstract class $AnimeModelCopyWith<$Res> {
       _$AnimeModelCopyWithImpl<$Res>;
   $Res call(
       {int id,
-      int? aniListId,
-      int? myAniListId,
+      @JsonKey(name: 'anilist_id') int? aniListId,
+      @JsonKey(name: 'mal_id') int? myAniListId,
       FormatShowEnum format,
       StatusEnum status,
       Map<String, String> titles,
@@ -171,9 +174,9 @@ abstract class $AnimeModelCopyWith<$Res> {
       int episodesCount,
       int? episodeDuration,
       String? trailerUrl,
-      String coverImageUrl,
+      @JsonKey(name: 'cover_image') String coverImageUrl,
       @ColorSerialiser() Color coverColor,
-      String? bannerImageUrl,
+      @JsonKey(name: 'banner_image') String? bannerImageUrl,
       List<String> genres,
       int? sequel,
       int? prequel,
@@ -309,8 +312,8 @@ abstract class _$AnimeModelCopyWith<$Res> implements $AnimeModelCopyWith<$Res> {
   @override
   $Res call(
       {int id,
-      int? aniListId,
-      int? myAniListId,
+      @JsonKey(name: 'anilist_id') int? aniListId,
+      @JsonKey(name: 'mal_id') int? myAniListId,
       FormatShowEnum format,
       StatusEnum status,
       Map<String, String> titles,
@@ -322,9 +325,9 @@ abstract class _$AnimeModelCopyWith<$Res> implements $AnimeModelCopyWith<$Res> {
       int episodesCount,
       int? episodeDuration,
       String? trailerUrl,
-      String coverImageUrl,
+      @JsonKey(name: 'cover_image') String coverImageUrl,
       @ColorSerialiser() Color coverColor,
-      String? bannerImageUrl,
+      @JsonKey(name: 'banner_image') String? bannerImageUrl,
       List<String> genres,
       int? sequel,
       int? prequel,
@@ -459,26 +462,25 @@ class __$AnimeModelCopyWithImpl<$Res> extends _$AnimeModelCopyWithImpl<$Res>
 class _$_AnimeModel implements _AnimeModel {
   const _$_AnimeModel(
       {required this.id,
-      required this.aniListId,
-      required this.myAniListId,
+      @JsonKey(name: 'anilist_id') this.aniListId,
+      @JsonKey(name: 'mal_id') this.myAniListId,
       required this.format,
       required this.status,
       required this.titles,
       required this.descriptions,
-      required this.startDate,
-      required this.endDate,
+      this.startDate,
+      this.endDate,
       required this.seasonPeriod,
-      required this.seasonYear,
+      this.seasonYear,
       required this.episodesCount,
-      required this.episodeDuration,
-      required this.trailerUrl,
-      required this.coverImageUrl,
-      @ColorSerialiser()
-          required this.coverColor = ColorSerialiser.defaultColor,
-      required this.bannerImageUrl,
+      this.episodeDuration,
+      this.trailerUrl,
+      @JsonKey(name: 'cover_image') required this.coverImageUrl,
+      @ColorSerialiser() this.coverColor = ColorSerialiser.defaultColor,
+      @JsonKey(name: 'banner_image') this.bannerImageUrl,
       required this.genres,
-      required this.sequel,
-      required this.prequel,
+      this.sequel,
+      this.prequel,
       required this.score});
 
   factory _$_AnimeModel.fromJson(Map<String, dynamic> json) =>
@@ -491,10 +493,12 @@ class _$_AnimeModel implements _AnimeModel {
   @override
 
   /// Anime list id
+  @JsonKey(name: 'anilist_id')
   final int? aniListId;
   @override
 
   /// My anime list id
+  @JsonKey(name: 'mal_id')
   final int? myAniListId;
   @override
 
@@ -544,6 +548,7 @@ class _$_AnimeModel implements _AnimeModel {
   @override
 
   /// The show's cover image url
+  @JsonKey(name: 'cover_image')
   final String coverImageUrl;
   @JsonKey()
   @override
@@ -554,6 +559,7 @@ class _$_AnimeModel implements _AnimeModel {
   @override
 
   /// The show's banner image
+  @JsonKey(name: 'banner_image')
   final String? bannerImageUrl;
   @override
 
@@ -656,25 +662,25 @@ class _$_AnimeModel implements _AnimeModel {
 abstract class _AnimeModel implements AnimeModel {
   const factory _AnimeModel(
       {required int id,
-      required int? aniListId,
-      required int? myAniListId,
+      @JsonKey(name: 'anilist_id') int? aniListId,
+      @JsonKey(name: 'mal_id') int? myAniListId,
       required FormatShowEnum format,
       required StatusEnum status,
       required Map<String, String> titles,
       required Map<String, String> descriptions,
-      required DateTime? startDate,
-      required DateTime? endDate,
+      DateTime? startDate,
+      DateTime? endDate,
       required SeasonPeriodEnum seasonPeriod,
-      required int? seasonYear,
+      int? seasonYear,
       required int episodesCount,
-      required int? episodeDuration,
-      required String? trailerUrl,
-      required String coverImageUrl,
-      @ColorSerialiser() required Color coverColor,
-      required String? bannerImageUrl,
+      int? episodeDuration,
+      String? trailerUrl,
+      @JsonKey(name: 'cover_image') required String coverImageUrl,
+      @ColorSerialiser() Color coverColor,
+      @JsonKey(name: 'banner_image') String? bannerImageUrl,
       required List<String> genres,
-      required int? sequel,
-      required int? prequel,
+      int? sequel,
+      int? prequel,
       required double score}) = _$_AnimeModel;
 
   factory _AnimeModel.fromJson(Map<String, dynamic> json) =
@@ -687,10 +693,12 @@ abstract class _AnimeModel implements AnimeModel {
   @override
 
   /// Anime list id
+  @JsonKey(name: 'anilist_id')
   int? get aniListId;
   @override
 
   /// My anime list id
+  @JsonKey(name: 'mal_id')
   int? get myAniListId;
   @override
 
@@ -740,6 +748,7 @@ abstract class _AnimeModel implements AnimeModel {
   @override
 
   /// The show's cover image url
+  @JsonKey(name: 'cover_image')
   String get coverImageUrl;
   @override
 
@@ -749,6 +758,7 @@ abstract class _AnimeModel implements AnimeModel {
   @override
 
   /// The show's banner image
+  @JsonKey(name: 'banner_image')
   String? get bannerImageUrl;
   @override
 

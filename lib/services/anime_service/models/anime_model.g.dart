@@ -9,8 +9,8 @@ part of 'anime_model.dart';
 _$_AnimeModel _$$_AnimeModelFromJson(Map<String, dynamic> json) =>
     _$_AnimeModel(
       id: json['id'] as int,
-      aniListId: json['aniListId'] as int?,
-      myAniListId: json['myAniListId'] as int?,
+      aniListId: json['anilist_id'] as int?,
+      myAniListId: json['mal_id'] as int?,
       format: $enumDecode(_$FormatShowEnumEnumMap, json['format']),
       status: $enumDecode(_$StatusEnumEnumMap, json['status']),
       titles: Map<String, String>.from(json['titles'] as Map),
@@ -27,11 +27,11 @@ _$_AnimeModel _$$_AnimeModelFromJson(Map<String, dynamic> json) =>
       episodesCount: json['episodesCount'] as int,
       episodeDuration: json['episodeDuration'] as int?,
       trailerUrl: json['trailerUrl'] as String?,
-      coverImageUrl: json['coverImageUrl'] as String,
+      coverImageUrl: json['cover_image'] as String,
       coverColor: json['coverColor'] == null
           ? ColorSerialiser.defaultColor
           : const ColorSerialiser().fromJson(json['coverColor'] as String?),
-      bannerImageUrl: json['bannerImageUrl'] as String?,
+      bannerImageUrl: json['banner_image'] as String?,
       genres:
           (json['genres'] as List<dynamic>).map((e) => e as String).toList(),
       sequel: json['sequel'] as int?,
@@ -42,8 +42,8 @@ _$_AnimeModel _$$_AnimeModelFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_AnimeModelToJson(_$_AnimeModel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'aniListId': instance.aniListId,
-      'myAniListId': instance.myAniListId,
+      'anilist_id': instance.aniListId,
+      'mal_id': instance.myAniListId,
       'format': _$FormatShowEnumEnumMap[instance.format],
       'status': _$StatusEnumEnumMap[instance.status],
       'titles': instance.titles,
@@ -55,9 +55,9 @@ Map<String, dynamic> _$$_AnimeModelToJson(_$_AnimeModel instance) =>
       'episodesCount': instance.episodesCount,
       'episodeDuration': instance.episodeDuration,
       'trailerUrl': instance.trailerUrl,
-      'coverImageUrl': instance.coverImageUrl,
+      'cover_image': instance.coverImageUrl,
       'coverColor': const ColorSerialiser().toJson(instance.coverColor),
-      'bannerImageUrl': instance.bannerImageUrl,
+      'banner_image': instance.bannerImageUrl,
       'genres': instance.genres,
       'sequel': instance.sequel,
       'prequel': instance.prequel,
