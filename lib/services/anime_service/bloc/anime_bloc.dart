@@ -29,8 +29,8 @@ class AnimeBloc extends Bloc<AnimeEvent, AnimeState> {
             event.nsfw);
         emit(AnimeState.loaded(animeLoaded: _animeModelLoaded));
       } on Exception catch (e) {
-        throw Exception(e.toString());
-        //emit(const AnimeState.error());
+        //throw Exception(e.toString());
+        emit(const AnimeState.error());
       }
     });
   }

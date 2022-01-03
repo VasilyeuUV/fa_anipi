@@ -70,6 +70,16 @@ class S {
     );
   }
 
+  /// `Data retrieval error`
+  String get errGetData {
+    return Intl.message(
+      'Data retrieval error',
+      name: 'errGetData',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Loading...`
   String get loading {
     return Intl.message(
@@ -85,6 +95,16 @@ class S {
     return Intl.message(
       'Nothing found',
       name: 'nothingFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search Name`
+  String get searchName {
+    return Intl.message(
+      'Search Name',
+      name: 'searchName',
       desc: '',
       args: [],
     );

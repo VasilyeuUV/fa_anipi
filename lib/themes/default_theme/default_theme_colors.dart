@@ -8,6 +8,10 @@ class DefaultThemeColors {
   static const Color bodyTextColor = Colors.yellow;
   static const Color captionColor = Colors.grey;
   static const Color containerBoxDecoration = Colors.black87;
+  static const Color textFieldStyleColor = Colors.white;
+  static const Color inputDecorationFillColor = Color.fromRGBO(86, 86, 86, 0.8);
+  static const Color inputDecorationHintColor = Colors.white;
+  static const Color inputDecorationPrefixIconColor = Colors.white;
 
 // LIGHT THEME
   static const Color primaryColorLight = Colors.purple;
