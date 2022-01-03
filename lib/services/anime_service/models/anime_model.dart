@@ -29,38 +29,41 @@ class AnimeModel with _$AnimeModel {
     required StatusEnum status,
 
     /// A dictionary of the show's titles organized by localization
-    required Map<String, String> titles,
+    required Map<String, String?> titles,
 
     /// A dictionary of the show's descriptions organized by localization
-    required Map<String, String> descriptions,
+    required Map<String, String?> descriptions,
 
     /// The show's global release date
-    DateTime? startDate,
+    @JsonKey(name: 'start_date') DateTime? startDate,
 
     /// The known show's global end date
-    DateTime? endDate,
+    @JsonKey(name: 'end_date') DateTime? endDate,
 
     /// The season on which the show has been released
-    required SeasonPeriodEnum seasonPeriod,
+    @JsonKey(name: 'season_period') required SeasonPeriodEnum seasonPeriod,
 
     /// The year on which the show has been released
-    int? seasonYear,
+    @JsonKey(name: 'season_year') int? seasonYear,
 
     /// Number of episodes released for the show
-    required int episodesCount,
+    @JsonKey(name: 'episodes_count') required int episodesCount,
 
     /// The show's episode average duration in minutes
-    int? episodeDuration,
+    @JsonKey(name: 'episode_duration') int? episodeDuration,
 
     /// External link to the show's trailer video
     /// Possible services: Youtube, Dailymotion
-    String? trailerUrl,
+    @JsonKey(name: 'trailer_url') String? trailerUrl,
 
     /// The show's cover image url
     @JsonKey(name: 'cover_image') required String coverImageUrl,
 
     /// The show's cover main color, in HEX format
-    @ColorSerialiser() @Default(ColorSerialiser.defaultColor) Color coverColor,
+    @JsonKey(name: 'cover_color')
+    @ColorSerialiser()
+    @Default(ColorSerialiser.defaultColor)
+        Color coverColor,
 
     /// The show's banner image
     @JsonKey(name: 'banner_image') String? bannerImageUrl,

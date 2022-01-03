@@ -23,22 +23,35 @@ class _$AnimeModelTearOff {
 
   _AnimeModel call(
       {required int id,
-      @JsonKey(name: 'anilist_id') int? aniListId,
-      @JsonKey(name: 'mal_id') int? myAniListId,
+      @JsonKey(name: 'anilist_id')
+          int? aniListId,
+      @JsonKey(name: 'mal_id')
+          int? myAniListId,
       required FormatShowEnum format,
       required StatusEnum status,
-      required Map<String, String> titles,
-      required Map<String, String> descriptions,
-      DateTime? startDate,
-      DateTime? endDate,
-      required SeasonPeriodEnum seasonPeriod,
-      int? seasonYear,
-      required int episodesCount,
-      int? episodeDuration,
-      String? trailerUrl,
-      @JsonKey(name: 'cover_image') required String coverImageUrl,
-      @ColorSerialiser() Color coverColor = ColorSerialiser.defaultColor,
-      @JsonKey(name: 'banner_image') String? bannerImageUrl,
+      required Map<String, String?> titles,
+      required Map<String, String?> descriptions,
+      @JsonKey(name: 'start_date')
+          DateTime? startDate,
+      @JsonKey(name: 'end_date')
+          DateTime? endDate,
+      @JsonKey(name: 'season_period')
+          required SeasonPeriodEnum seasonPeriod,
+      @JsonKey(name: 'season_year')
+          int? seasonYear,
+      @JsonKey(name: 'episodes_count')
+          required int episodesCount,
+      @JsonKey(name: 'episode_duration')
+          int? episodeDuration,
+      @JsonKey(name: 'trailer_url')
+          String? trailerUrl,
+      @JsonKey(name: 'cover_image')
+          required String coverImageUrl,
+      @JsonKey(name: 'cover_color')
+      @ColorSerialiser()
+          Color coverColor = ColorSerialiser.defaultColor,
+      @JsonKey(name: 'banner_image')
+          String? bannerImageUrl,
       required List<String> genres,
       int? sequel,
       int? prequel,
@@ -96,31 +109,38 @@ mixin _$AnimeModel {
   StatusEnum get status => throw _privateConstructorUsedError;
 
   /// A dictionary of the show's titles organized by localization
-  Map<String, String> get titles => throw _privateConstructorUsedError;
+  Map<String, String?> get titles => throw _privateConstructorUsedError;
 
   /// A dictionary of the show's descriptions organized by localization
-  Map<String, String> get descriptions => throw _privateConstructorUsedError;
+  Map<String, String?> get descriptions => throw _privateConstructorUsedError;
 
   /// The show's global release date
+  @JsonKey(name: 'start_date')
   DateTime? get startDate => throw _privateConstructorUsedError;
 
   /// The known show's global end date
+  @JsonKey(name: 'end_date')
   DateTime? get endDate => throw _privateConstructorUsedError;
 
   /// The season on which the show has been released
+  @JsonKey(name: 'season_period')
   SeasonPeriodEnum get seasonPeriod => throw _privateConstructorUsedError;
 
   /// The year on which the show has been released
+  @JsonKey(name: 'season_year')
   int? get seasonYear => throw _privateConstructorUsedError;
 
   /// Number of episodes released for the show
+  @JsonKey(name: 'episodes_count')
   int get episodesCount => throw _privateConstructorUsedError;
 
   /// The show's episode average duration in minutes
+  @JsonKey(name: 'episode_duration')
   int? get episodeDuration => throw _privateConstructorUsedError;
 
   /// External link to the show's trailer video
   /// Possible services: Youtube, Dailymotion
+  @JsonKey(name: 'trailer_url')
   String? get trailerUrl => throw _privateConstructorUsedError;
 
   /// The show's cover image url
@@ -128,6 +148,7 @@ mixin _$AnimeModel {
   String get coverImageUrl => throw _privateConstructorUsedError;
 
   /// The show's cover main color, in HEX format
+  @JsonKey(name: 'cover_color')
   @ColorSerialiser()
   Color get coverColor => throw _privateConstructorUsedError;
 
@@ -165,17 +186,17 @@ abstract class $AnimeModelCopyWith<$Res> {
       @JsonKey(name: 'mal_id') int? myAniListId,
       FormatShowEnum format,
       StatusEnum status,
-      Map<String, String> titles,
-      Map<String, String> descriptions,
-      DateTime? startDate,
-      DateTime? endDate,
-      SeasonPeriodEnum seasonPeriod,
-      int? seasonYear,
-      int episodesCount,
-      int? episodeDuration,
-      String? trailerUrl,
+      Map<String, String?> titles,
+      Map<String, String?> descriptions,
+      @JsonKey(name: 'start_date') DateTime? startDate,
+      @JsonKey(name: 'end_date') DateTime? endDate,
+      @JsonKey(name: 'season_period') SeasonPeriodEnum seasonPeriod,
+      @JsonKey(name: 'season_year') int? seasonYear,
+      @JsonKey(name: 'episodes_count') int episodesCount,
+      @JsonKey(name: 'episode_duration') int? episodeDuration,
+      @JsonKey(name: 'trailer_url') String? trailerUrl,
       @JsonKey(name: 'cover_image') String coverImageUrl,
-      @ColorSerialiser() Color coverColor,
+      @JsonKey(name: 'cover_color') @ColorSerialiser() Color coverColor,
       @JsonKey(name: 'banner_image') String? bannerImageUrl,
       List<String> genres,
       int? sequel,
@@ -239,11 +260,11 @@ class _$AnimeModelCopyWithImpl<$Res> implements $AnimeModelCopyWith<$Res> {
       titles: titles == freezed
           ? _value.titles
           : titles // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as Map<String, String?>,
       descriptions: descriptions == freezed
           ? _value.descriptions
           : descriptions // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as Map<String, String?>,
       startDate: startDate == freezed
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
@@ -316,17 +337,17 @@ abstract class _$AnimeModelCopyWith<$Res> implements $AnimeModelCopyWith<$Res> {
       @JsonKey(name: 'mal_id') int? myAniListId,
       FormatShowEnum format,
       StatusEnum status,
-      Map<String, String> titles,
-      Map<String, String> descriptions,
-      DateTime? startDate,
-      DateTime? endDate,
-      SeasonPeriodEnum seasonPeriod,
-      int? seasonYear,
-      int episodesCount,
-      int? episodeDuration,
-      String? trailerUrl,
+      Map<String, String?> titles,
+      Map<String, String?> descriptions,
+      @JsonKey(name: 'start_date') DateTime? startDate,
+      @JsonKey(name: 'end_date') DateTime? endDate,
+      @JsonKey(name: 'season_period') SeasonPeriodEnum seasonPeriod,
+      @JsonKey(name: 'season_year') int? seasonYear,
+      @JsonKey(name: 'episodes_count') int episodesCount,
+      @JsonKey(name: 'episode_duration') int? episodeDuration,
+      @JsonKey(name: 'trailer_url') String? trailerUrl,
       @JsonKey(name: 'cover_image') String coverImageUrl,
-      @ColorSerialiser() Color coverColor,
+      @JsonKey(name: 'cover_color') @ColorSerialiser() Color coverColor,
       @JsonKey(name: 'banner_image') String? bannerImageUrl,
       List<String> genres,
       int? sequel,
@@ -392,11 +413,11 @@ class __$AnimeModelCopyWithImpl<$Res> extends _$AnimeModelCopyWithImpl<$Res>
       titles: titles == freezed
           ? _value.titles
           : titles // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as Map<String, String?>,
       descriptions: descriptions == freezed
           ? _value.descriptions
           : descriptions // ignore: cast_nullable_to_non_nullable
-              as Map<String, String>,
+              as Map<String, String?>,
       startDate: startDate == freezed
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
@@ -462,22 +483,35 @@ class __$AnimeModelCopyWithImpl<$Res> extends _$AnimeModelCopyWithImpl<$Res>
 class _$_AnimeModel implements _AnimeModel {
   const _$_AnimeModel(
       {required this.id,
-      @JsonKey(name: 'anilist_id') this.aniListId,
-      @JsonKey(name: 'mal_id') this.myAniListId,
+      @JsonKey(name: 'anilist_id')
+          this.aniListId,
+      @JsonKey(name: 'mal_id')
+          this.myAniListId,
       required this.format,
       required this.status,
       required this.titles,
       required this.descriptions,
-      this.startDate,
-      this.endDate,
-      required this.seasonPeriod,
-      this.seasonYear,
-      required this.episodesCount,
-      this.episodeDuration,
-      this.trailerUrl,
-      @JsonKey(name: 'cover_image') required this.coverImageUrl,
-      @ColorSerialiser() this.coverColor = ColorSerialiser.defaultColor,
-      @JsonKey(name: 'banner_image') this.bannerImageUrl,
+      @JsonKey(name: 'start_date')
+          this.startDate,
+      @JsonKey(name: 'end_date')
+          this.endDate,
+      @JsonKey(name: 'season_period')
+          required this.seasonPeriod,
+      @JsonKey(name: 'season_year')
+          this.seasonYear,
+      @JsonKey(name: 'episodes_count')
+          required this.episodesCount,
+      @JsonKey(name: 'episode_duration')
+          this.episodeDuration,
+      @JsonKey(name: 'trailer_url')
+          this.trailerUrl,
+      @JsonKey(name: 'cover_image')
+          required this.coverImageUrl,
+      @JsonKey(name: 'cover_color')
+      @ColorSerialiser()
+          this.coverColor = ColorSerialiser.defaultColor,
+      @JsonKey(name: 'banner_image')
+          this.bannerImageUrl,
       required this.genres,
       this.sequel,
       this.prequel,
@@ -511,49 +545,56 @@ class _$_AnimeModel implements _AnimeModel {
   @override
 
   /// A dictionary of the show's titles organized by localization
-  final Map<String, String> titles;
+  final Map<String, String?> titles;
   @override
 
   /// A dictionary of the show's descriptions organized by localization
-  final Map<String, String> descriptions;
+  final Map<String, String?> descriptions;
   @override
 
   /// The show's global release date
+  @JsonKey(name: 'start_date')
   final DateTime? startDate;
   @override
 
   /// The known show's global end date
+  @JsonKey(name: 'end_date')
   final DateTime? endDate;
   @override
 
   /// The season on which the show has been released
+  @JsonKey(name: 'season_period')
   final SeasonPeriodEnum seasonPeriod;
   @override
 
   /// The year on which the show has been released
+  @JsonKey(name: 'season_year')
   final int? seasonYear;
   @override
 
   /// Number of episodes released for the show
+  @JsonKey(name: 'episodes_count')
   final int episodesCount;
   @override
 
   /// The show's episode average duration in minutes
+  @JsonKey(name: 'episode_duration')
   final int? episodeDuration;
   @override
 
   /// External link to the show's trailer video
   /// Possible services: Youtube, Dailymotion
+  @JsonKey(name: 'trailer_url')
   final String? trailerUrl;
   @override
 
   /// The show's cover image url
   @JsonKey(name: 'cover_image')
   final String coverImageUrl;
-  @JsonKey()
   @override
 
   /// The show's cover main color, in HEX format
+  @JsonKey(name: 'cover_color')
   @ColorSerialiser()
   final Color coverColor;
   @override
@@ -666,17 +707,17 @@ abstract class _AnimeModel implements AnimeModel {
       @JsonKey(name: 'mal_id') int? myAniListId,
       required FormatShowEnum format,
       required StatusEnum status,
-      required Map<String, String> titles,
-      required Map<String, String> descriptions,
-      DateTime? startDate,
-      DateTime? endDate,
-      required SeasonPeriodEnum seasonPeriod,
-      int? seasonYear,
-      required int episodesCount,
-      int? episodeDuration,
-      String? trailerUrl,
+      required Map<String, String?> titles,
+      required Map<String, String?> descriptions,
+      @JsonKey(name: 'start_date') DateTime? startDate,
+      @JsonKey(name: 'end_date') DateTime? endDate,
+      @JsonKey(name: 'season_period') required SeasonPeriodEnum seasonPeriod,
+      @JsonKey(name: 'season_year') int? seasonYear,
+      @JsonKey(name: 'episodes_count') required int episodesCount,
+      @JsonKey(name: 'episode_duration') int? episodeDuration,
+      @JsonKey(name: 'trailer_url') String? trailerUrl,
       @JsonKey(name: 'cover_image') required String coverImageUrl,
-      @ColorSerialiser() Color coverColor,
+      @JsonKey(name: 'cover_color') @ColorSerialiser() Color coverColor,
       @JsonKey(name: 'banner_image') String? bannerImageUrl,
       required List<String> genres,
       int? sequel,
@@ -711,39 +752,46 @@ abstract class _AnimeModel implements AnimeModel {
   @override
 
   /// A dictionary of the show's titles organized by localization
-  Map<String, String> get titles;
+  Map<String, String?> get titles;
   @override
 
   /// A dictionary of the show's descriptions organized by localization
-  Map<String, String> get descriptions;
+  Map<String, String?> get descriptions;
   @override
 
   /// The show's global release date
+  @JsonKey(name: 'start_date')
   DateTime? get startDate;
   @override
 
   /// The known show's global end date
+  @JsonKey(name: 'end_date')
   DateTime? get endDate;
   @override
 
   /// The season on which the show has been released
+  @JsonKey(name: 'season_period')
   SeasonPeriodEnum get seasonPeriod;
   @override
 
   /// The year on which the show has been released
+  @JsonKey(name: 'season_year')
   int? get seasonYear;
   @override
 
   /// Number of episodes released for the show
+  @JsonKey(name: 'episodes_count')
   int get episodesCount;
   @override
 
   /// The show's episode average duration in minutes
+  @JsonKey(name: 'episode_duration')
   int? get episodeDuration;
   @override
 
   /// External link to the show's trailer video
   /// Possible services: Youtube, Dailymotion
+  @JsonKey(name: 'trailer_url')
   String? get trailerUrl;
   @override
 
@@ -753,6 +801,7 @@ abstract class _AnimeModel implements AnimeModel {
   @override
 
   /// The show's cover main color, in HEX format
+  @JsonKey(name: 'cover_color')
   @ColorSerialiser()
   Color get coverColor;
   @override

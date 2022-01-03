@@ -8,7 +8,7 @@ part of 'aniapi_model.dart';
 
 _$_AniApiModel _$$_AniApiModelFromJson(Map<String, dynamic> json) =>
     _$_AniApiModel(
-      statuseCode: json['statuseCode'] as int,
+      statusCode: json['status_code'] as int,
       message: json['message'] as String?,
       version: json['version'] as String?,
       data: AniDataModel.fromJson(json['data'] as Map<String, dynamic>),
@@ -16,7 +16,7 @@ _$_AniApiModel _$$_AniApiModelFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_AniApiModelToJson(_$_AniApiModel instance) =>
     <String, dynamic>{
-      'statuseCode': instance.statuseCode,
+      'status_code': instance.statusCode,
       'message': instance.message,
       'version': instance.version,
       'data': instance.data,

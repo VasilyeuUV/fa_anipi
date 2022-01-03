@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:fa_anipi/services/anime_service/models/anime_model.dart';
+import 'package:fa_anipi/services/anime_service/models/aniapi_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
@@ -8,7 +8,7 @@ class AnimeRepository {
   final _url = 'https://api.aniapi.com/v1/anime';
 
   /// nsfw - A filter on the list which excludes Anime classified as Not Safe For Work
-  Future<AnimeModel> getAnime([
+  Future<AniApiModel> getAnime([
     String? title,
     int? aniListId,
     int? myAniListId,
@@ -53,7 +53,7 @@ class AnimeRepository {
       var response = await http.get(Uri.parse(_url + _parameters));
       var jsonResult = json.decode(response.body);
 
-      var result = AnimeModel.fromJson(jsonResult);
+      var result = AniApiModel.fromJson(jsonResult);
       if (kDebugMode) {
         print(result);
       }

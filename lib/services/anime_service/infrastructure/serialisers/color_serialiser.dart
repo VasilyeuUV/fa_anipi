@@ -7,10 +7,12 @@ class ColorSerialiser implements JsonConverter<Color, String?> {
   static const Color defaultColor = Color.fromRGBO(0, 0, 0, 0);
 
   @override
-  Color fromJson(String? json) {
-    int? code = int.tryParse(json!, radix: 16);
-    return code == null ? defaultColor : Color(code);
-  }
+  Color fromJson(String? json) =>
+      Color(int.parse(json!.substring(1, 7), radix: 16) + 0x00000000);
+  // {
+  //   int? code = int.tryParse(json!.substring(1, 7), radix: 16);
+  //   return code == null ? defaultColor : Color(code);
+  // }
 
   @override
   String toJson(Color color) =>

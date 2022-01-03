@@ -8,7 +8,7 @@ part 'aniapi_model.g.dart'; // json
 @freezed
 class AniApiModel with _$AniApiModel {
   const factory AniApiModel({
-    required int statuseCode,
+    @JsonKey(name: 'status_code') required int statusCode,
     String? message,
     String? version,
     required AniDataModel data,

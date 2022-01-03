@@ -22,12 +22,12 @@ class _$AniApiModelTearOff {
   const _$AniApiModelTearOff();
 
   _AniApiModel call(
-      {required int statuseCode,
+      {@JsonKey(name: 'status_code') required int statusCode,
       String? message,
       String? version,
       required AniDataModel data}) {
     return _AniApiModel(
-      statuseCode: statuseCode,
+      statusCode: statusCode,
       message: message,
       version: version,
       data: data,
@@ -44,7 +44,8 @@ const $AniApiModel = _$AniApiModelTearOff();
 
 /// @nodoc
 mixin _$AniApiModel {
-  int get statuseCode => throw _privateConstructorUsedError;
+  @JsonKey(name: 'status_code')
+  int get statusCode => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
   String? get version => throw _privateConstructorUsedError;
   AniDataModel get data => throw _privateConstructorUsedError;
@@ -61,7 +62,10 @@ abstract class $AniApiModelCopyWith<$Res> {
           AniApiModel value, $Res Function(AniApiModel) then) =
       _$AniApiModelCopyWithImpl<$Res>;
   $Res call(
-      {int statuseCode, String? message, String? version, AniDataModel data});
+      {@JsonKey(name: 'status_code') int statusCode,
+      String? message,
+      String? version,
+      AniDataModel data});
 
   $AniDataModelCopyWith<$Res> get data;
 }
@@ -76,15 +80,15 @@ class _$AniApiModelCopyWithImpl<$Res> implements $AniApiModelCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? statuseCode = freezed,
+    Object? statusCode = freezed,
     Object? message = freezed,
     Object? version = freezed,
     Object? data = freezed,
   }) {
     return _then(_value.copyWith(
-      statuseCode: statuseCode == freezed
-          ? _value.statuseCode
-          : statuseCode // ignore: cast_nullable_to_non_nullable
+      statusCode: statusCode == freezed
+          ? _value.statusCode
+          : statusCode // ignore: cast_nullable_to_non_nullable
               as int,
       message: message == freezed
           ? _value.message
@@ -117,7 +121,10 @@ abstract class _$AniApiModelCopyWith<$Res>
       __$AniApiModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int statuseCode, String? message, String? version, AniDataModel data});
+      {@JsonKey(name: 'status_code') int statusCode,
+      String? message,
+      String? version,
+      AniDataModel data});
 
   @override
   $AniDataModelCopyWith<$Res> get data;
@@ -135,15 +142,15 @@ class __$AniApiModelCopyWithImpl<$Res> extends _$AniApiModelCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? statuseCode = freezed,
+    Object? statusCode = freezed,
     Object? message = freezed,
     Object? version = freezed,
     Object? data = freezed,
   }) {
     return _then(_AniApiModel(
-      statuseCode: statuseCode == freezed
-          ? _value.statuseCode
-          : statuseCode // ignore: cast_nullable_to_non_nullable
+      statusCode: statusCode == freezed
+          ? _value.statusCode
+          : statusCode // ignore: cast_nullable_to_non_nullable
               as int,
       message: message == freezed
           ? _value.message
@@ -165,7 +172,7 @@ class __$AniApiModelCopyWithImpl<$Res> extends _$AniApiModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_AniApiModel implements _AniApiModel {
   const _$_AniApiModel(
-      {required this.statuseCode,
+      {@JsonKey(name: 'status_code') required this.statusCode,
       this.message,
       this.version,
       required this.data});
@@ -174,7 +181,8 @@ class _$_AniApiModel implements _AniApiModel {
       _$$_AniApiModelFromJson(json);
 
   @override
-  final int statuseCode;
+  @JsonKey(name: 'status_code')
+  final int statusCode;
   @override
   final String? message;
   @override
@@ -184,7 +192,7 @@ class _$_AniApiModel implements _AniApiModel {
 
   @override
   String toString() {
-    return 'AniApiModel(statuseCode: $statuseCode, message: $message, version: $version, data: $data)';
+    return 'AniApiModel(statusCode: $statusCode, message: $message, version: $version, data: $data)';
   }
 
   @override
@@ -193,7 +201,7 @@ class _$_AniApiModel implements _AniApiModel {
         (other.runtimeType == runtimeType &&
             other is _AniApiModel &&
             const DeepCollectionEquality()
-                .equals(other.statuseCode, statuseCode) &&
+                .equals(other.statusCode, statusCode) &&
             const DeepCollectionEquality().equals(other.message, message) &&
             const DeepCollectionEquality().equals(other.version, version) &&
             const DeepCollectionEquality().equals(other.data, data));
@@ -202,7 +210,7 @@ class _$_AniApiModel implements _AniApiModel {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(statuseCode),
+      const DeepCollectionEquality().hash(statusCode),
       const DeepCollectionEquality().hash(message),
       const DeepCollectionEquality().hash(version),
       const DeepCollectionEquality().hash(data));
@@ -220,7 +228,7 @@ class _$_AniApiModel implements _AniApiModel {
 
 abstract class _AniApiModel implements AniApiModel {
   const factory _AniApiModel(
-      {required int statuseCode,
+      {@JsonKey(name: 'status_code') required int statusCode,
       String? message,
       String? version,
       required AniDataModel data}) = _$_AniApiModel;
@@ -229,7 +237,8 @@ abstract class _AniApiModel implements AniApiModel {
       _$_AniApiModel.fromJson;
 
   @override
-  int get statuseCode;
+  @JsonKey(name: 'status_code')
+  int get statusCode;
   @override
   String? get message;
   @override

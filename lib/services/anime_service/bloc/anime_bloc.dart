@@ -1,7 +1,7 @@
+import 'package:fa_anipi/services/anime_service/models/aniapi_model.dart';
 import 'package:fa_anipi/services/anime_service/repositories/anime_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:fa_anipi/services/anime_service/models/anime_model.dart';
 
 part 'anime_bloc.freezed.dart';
 // part 'anime_bloc.g.dart';
@@ -17,7 +17,7 @@ class AnimeBloc extends Bloc<AnimeEvent, AnimeState> {
     on<AnimeEventFetch>((event, emit) async {
       emit(const AnimeState.loading());
       try {
-        AnimeModel _animeModelLoaded = await animeRepository.getAnime(
+        AniApiModel _animeModelLoaded = await animeRepository.getAnime(
             event.title,
             event.aniListId,
             event.myAniListId,

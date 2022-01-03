@@ -8,9 +8,9 @@ part of 'anidata_model.dart';
 
 _$_AniDataModel _$$_AniDataModelFromJson(Map<String, dynamic> json) =>
     _$_AniDataModel(
-      currentPage: json['currentPage'] as int,
+      currentPage: json['current_page'] as int,
       count: json['count'] as int,
-      lastPage: json['lastPage'] as int,
+      lastPage: json['last_page'] as int,
       documents: (json['documents'] as List<dynamic>)
           .map((e) => AnimeModel.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -18,8 +18,8 @@ _$_AniDataModel _$$_AniDataModelFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_AniDataModelToJson(_$_AniDataModel instance) =>
     <String, dynamic>{
-      'currentPage': instance.currentPage,
+      'current_page': instance.currentPage,
       'count': instance.count,
-      'lastPage': instance.lastPage,
+      'last_page': instance.lastPage,
       'documents': instance.documents,
     };

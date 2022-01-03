@@ -8,9 +8,9 @@ part 'anidata_model.g.dart'; // json
 @freezed
 class AniDataModel with _$AniDataModel {
   const factory AniDataModel({
-    required int currentPage,
+    @JsonKey(name: 'current_page') required int currentPage,
     required int count,
-    required int lastPage,
+    @JsonKey(name: 'last_page') required int lastPage,
     required List<AnimeModel> documents,
   }) = _AniDataModel;
 

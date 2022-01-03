@@ -22,9 +22,9 @@ class _$AniDataModelTearOff {
   const _$AniDataModelTearOff();
 
   _AniDataModel call(
-      {required int currentPage,
+      {@JsonKey(name: 'current_page') required int currentPage,
       required int count,
-      required int lastPage,
+      @JsonKey(name: 'last_page') required int lastPage,
       required List<AnimeModel> documents}) {
     return _AniDataModel(
       currentPage: currentPage,
@@ -44,8 +44,10 @@ const $AniDataModel = _$AniDataModelTearOff();
 
 /// @nodoc
 mixin _$AniDataModel {
+  @JsonKey(name: 'current_page')
   int get currentPage => throw _privateConstructorUsedError;
   int get count => throw _privateConstructorUsedError;
+  @JsonKey(name: 'last_page')
   int get lastPage => throw _privateConstructorUsedError;
   List<AnimeModel> get documents => throw _privateConstructorUsedError;
 
@@ -61,7 +63,10 @@ abstract class $AniDataModelCopyWith<$Res> {
           AniDataModel value, $Res Function(AniDataModel) then) =
       _$AniDataModelCopyWithImpl<$Res>;
   $Res call(
-      {int currentPage, int count, int lastPage, List<AnimeModel> documents});
+      {@JsonKey(name: 'current_page') int currentPage,
+      int count,
+      @JsonKey(name: 'last_page') int lastPage,
+      List<AnimeModel> documents});
 }
 
 /// @nodoc
@@ -108,7 +113,10 @@ abstract class _$AniDataModelCopyWith<$Res>
       __$AniDataModelCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int currentPage, int count, int lastPage, List<AnimeModel> documents});
+      {@JsonKey(name: 'current_page') int currentPage,
+      int count,
+      @JsonKey(name: 'last_page') int lastPage,
+      List<AnimeModel> documents});
 }
 
 /// @nodoc
@@ -153,19 +161,21 @@ class __$AniDataModelCopyWithImpl<$Res> extends _$AniDataModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_AniDataModel implements _AniDataModel {
   const _$_AniDataModel(
-      {required this.currentPage,
+      {@JsonKey(name: 'current_page') required this.currentPage,
       required this.count,
-      required this.lastPage,
+      @JsonKey(name: 'last_page') required this.lastPage,
       required this.documents});
 
   factory _$_AniDataModel.fromJson(Map<String, dynamic> json) =>
       _$$_AniDataModelFromJson(json);
 
   @override
+  @JsonKey(name: 'current_page')
   final int currentPage;
   @override
   final int count;
   @override
+  @JsonKey(name: 'last_page')
   final int lastPage;
   @override
   final List<AnimeModel> documents;
@@ -208,19 +218,21 @@ class _$_AniDataModel implements _AniDataModel {
 
 abstract class _AniDataModel implements AniDataModel {
   const factory _AniDataModel(
-      {required int currentPage,
+      {@JsonKey(name: 'current_page') required int currentPage,
       required int count,
-      required int lastPage,
+      @JsonKey(name: 'last_page') required int lastPage,
       required List<AnimeModel> documents}) = _$_AniDataModel;
 
   factory _AniDataModel.fromJson(Map<String, dynamic> json) =
       _$_AniDataModel.fromJson;
 
   @override
+  @JsonKey(name: 'current_page')
   int get currentPage;
   @override
   int get count;
   @override
+  @JsonKey(name: 'last_page')
   int get lastPage;
   @override
   List<AnimeModel> get documents;
