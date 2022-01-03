@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 class DefaultThemeColors {
   DefaultThemeColors._();
 
+// COMMON
+  static const Color headlineColor = Colors.white;
+  static const Color bodyTextColor = Colors.yellow;
+  static const Color captionColor = Colors.grey;
+  static const Color containerBoxDecoration = Colors.black87;
+
 // LIGHT THEME
   static const Color primaryColorLight = Colors.purple;
   static const Color appBarBackgroundLight = Colors.purple;

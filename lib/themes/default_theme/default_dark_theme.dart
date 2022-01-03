@@ -1,3 +1,9 @@
-import 'package:flutter/material.dart';
+import 'default_theme_colors.dart';
+import 'default_theme_common.dart';
 
-final defaultDarkTheme = ThemeData.dark().copyWith();
+final defaultDarkTheme = defaultThemeCommon.copyWith(
+//#############################################################
+// #region Colors
+  primaryColor: DefaultThemeColors.primaryColorDark,
+  scaffoldBackgroundColor: DefaultThemeColors.scaffoldBackgroundDark,
+);

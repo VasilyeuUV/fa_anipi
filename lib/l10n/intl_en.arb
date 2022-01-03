@@ -1,4 +1,6 @@
 {
     "appTitle": "APPS TITLE",
-    "appBarTitle": "AppBar Title"
+    "appBarTitle": "AppBar Title",
+    "loading": "Loading...",
+    "nothingFound": "Nothing found"
 }
