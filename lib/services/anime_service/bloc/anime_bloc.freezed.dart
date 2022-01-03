@@ -492,7 +492,7 @@ class _$AnimeStateTearOff {
     return const AnimeStateLoading();
   }
 
-  AnimeStateLoaded loaded({required AnimeModel animeLoaded}) {
+  AnimeStateLoaded loaded({required AniApiModel animeLoaded}) {
     return AnimeStateLoaded(
       animeLoaded: animeLoaded,
     );
@@ -511,21 +511,21 @@ mixin _$AnimeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(AnimeModel animeLoaded) loaded,
+    required TResult Function(AniApiModel animeLoaded) loaded,
     required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(AnimeModel animeLoaded)? loaded,
+    TResult Function(AniApiModel animeLoaded)? loaded,
     TResult Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(AnimeModel animeLoaded)? loaded,
+    TResult Function(AniApiModel animeLoaded)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) =>
@@ -612,7 +612,7 @@ class _$AnimeStateLoading implements AnimeStateLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(AnimeModel animeLoaded) loaded,
+    required TResult Function(AniApiModel animeLoaded) loaded,
     required TResult Function() error,
   }) {
     return loading();
@@ -622,7 +622,7 @@ class _$AnimeStateLoading implements AnimeStateLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(AnimeModel animeLoaded)? loaded,
+    TResult Function(AniApiModel animeLoaded)? loaded,
     TResult Function()? error,
   }) {
     return loading?.call();
@@ -632,7 +632,7 @@ class _$AnimeStateLoading implements AnimeStateLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(AnimeModel animeLoaded)? loaded,
+    TResult Function(AniApiModel animeLoaded)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -686,9 +686,9 @@ abstract class $AnimeStateLoadedCopyWith<$Res> {
   factory $AnimeStateLoadedCopyWith(
           AnimeStateLoaded value, $Res Function(AnimeStateLoaded) then) =
       _$AnimeStateLoadedCopyWithImpl<$Res>;
-  $Res call({AnimeModel animeLoaded});
+  $Res call({AniApiModel animeLoaded});
 
-  $AnimeModelCopyWith<$Res> get animeLoaded;
+  $AniApiModelCopyWith<$Res> get animeLoaded;
 }
 
 /// @nodoc
@@ -710,13 +710,13 @@ class _$AnimeStateLoadedCopyWithImpl<$Res>
       animeLoaded: animeLoaded == freezed
           ? _value.animeLoaded
           : animeLoaded // ignore: cast_nullable_to_non_nullable
-              as AnimeModel,
+              as AniApiModel,
     ));
   }
 
   @override
-  $AnimeModelCopyWith<$Res> get animeLoaded {
-    return $AnimeModelCopyWith<$Res>(_value.animeLoaded, (value) {
+  $AniApiModelCopyWith<$Res> get animeLoaded {
+    return $AniApiModelCopyWith<$Res>(_value.animeLoaded, (value) {
       return _then(_value.copyWith(animeLoaded: value));
     });
   }
@@ -728,7 +728,7 @@ class _$AnimeStateLoaded implements AnimeStateLoaded {
   const _$AnimeStateLoaded({required this.animeLoaded});
 
   @override
-  final AnimeModel animeLoaded;
+  final AniApiModel animeLoaded;
 
   @override
   String toString() {
@@ -757,7 +757,7 @@ class _$AnimeStateLoaded implements AnimeStateLoaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(AnimeModel animeLoaded) loaded,
+    required TResult Function(AniApiModel animeLoaded) loaded,
     required TResult Function() error,
   }) {
     return loaded(animeLoaded);
@@ -767,7 +767,7 @@ class _$AnimeStateLoaded implements AnimeStateLoaded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(AnimeModel animeLoaded)? loaded,
+    TResult Function(AniApiModel animeLoaded)? loaded,
     TResult Function()? error,
   }) {
     return loaded?.call(animeLoaded);
@@ -777,7 +777,7 @@ class _$AnimeStateLoaded implements AnimeStateLoaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(AnimeModel animeLoaded)? loaded,
+    TResult Function(AniApiModel animeLoaded)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {
@@ -823,10 +823,10 @@ class _$AnimeStateLoaded implements AnimeStateLoaded {
 }
 
 abstract class AnimeStateLoaded implements AnimeState {
-  const factory AnimeStateLoaded({required AnimeModel animeLoaded}) =
+  const factory AnimeStateLoaded({required AniApiModel animeLoaded}) =
       _$AnimeStateLoaded;
 
-  AnimeModel get animeLoaded;
+  AniApiModel get animeLoaded;
   @JsonKey(ignore: true)
   $AnimeStateLoadedCopyWith<AnimeStateLoaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -873,7 +873,7 @@ class _$AnimeStateError implements AnimeStateError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(AnimeModel animeLoaded) loaded,
+    required TResult Function(AniApiModel animeLoaded) loaded,
     required TResult Function() error,
   }) {
     return error();
@@ -883,7 +883,7 @@ class _$AnimeStateError implements AnimeStateError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(AnimeModel animeLoaded)? loaded,
+    TResult Function(AniApiModel animeLoaded)? loaded,
     TResult Function()? error,
   }) {
     return error?.call();
@@ -893,7 +893,7 @@ class _$AnimeStateError implements AnimeStateError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(AnimeModel animeLoaded)? loaded,
+    TResult Function(AniApiModel animeLoaded)? loaded,
     TResult Function()? error,
     required TResult orElse(),
   }) {

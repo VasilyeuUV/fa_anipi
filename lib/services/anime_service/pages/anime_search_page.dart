@@ -44,7 +44,7 @@ class _AnimeSearchPageState extends State<AnimeSearchPage> {
           ),
         );
       },
-      loaded: (animeLoaded) => Text('${animeLoaded.titles}'),
+      loaded: (animeLoaded) => Text('${animeLoaded.message}'),
       error: () => Text(S.of(context).nothingFound),
     );
   }

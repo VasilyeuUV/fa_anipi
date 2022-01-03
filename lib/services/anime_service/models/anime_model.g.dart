@@ -13,24 +13,24 @@ _$_AnimeModel _$$_AnimeModelFromJson(Map<String, dynamic> json) =>
       myAniListId: json['mal_id'] as int?,
       format: $enumDecode(_$FormatShowEnumEnumMap, json['format']),
       status: $enumDecode(_$StatusEnumEnumMap, json['status']),
-      titles: Map<String, String>.from(json['titles'] as Map),
-      descriptions: Map<String, String>.from(json['descriptions'] as Map),
-      startDate: json['startDate'] == null
+      titles: Map<String, String?>.from(json['titles'] as Map),
+      descriptions: Map<String, String?>.from(json['descriptions'] as Map),
+      startDate: json['start_date'] == null
           ? null
-          : DateTime.parse(json['startDate'] as String),
-      endDate: json['endDate'] == null
+          : DateTime.parse(json['start_date'] as String),
+      endDate: json['end_date'] == null
           ? null
-          : DateTime.parse(json['endDate'] as String),
+          : DateTime.parse(json['end_date'] as String),
       seasonPeriod:
-          $enumDecode(_$SeasonPeriodEnumEnumMap, json['seasonPeriod']),
-      seasonYear: json['seasonYear'] as int?,
-      episodesCount: json['episodesCount'] as int,
-      episodeDuration: json['episodeDuration'] as int?,
-      trailerUrl: json['trailerUrl'] as String?,
+          $enumDecode(_$SeasonPeriodEnumEnumMap, json['season_period']),
+      seasonYear: json['season_year'] as int?,
+      episodesCount: json['episodes_count'] as int,
+      episodeDuration: json['episode_duration'] as int?,
+      trailerUrl: json['trailer_url'] as String?,
       coverImageUrl: json['cover_image'] as String,
-      coverColor: json['coverColor'] == null
+      coverColor: json['cover_color'] == null
           ? ColorSerialiser.defaultColor
-          : const ColorSerialiser().fromJson(json['coverColor'] as String?),
+          : const ColorSerialiser().fromJson(json['cover_color'] as String?),
       bannerImageUrl: json['banner_image'] as String?,
       genres:
           (json['genres'] as List<dynamic>).map((e) => e as String).toList(),
@@ -48,15 +48,15 @@ Map<String, dynamic> _$$_AnimeModelToJson(_$_AnimeModel instance) =>
       'status': _$StatusEnumEnumMap[instance.status],
       'titles': instance.titles,
       'descriptions': instance.descriptions,
-      'startDate': instance.startDate?.toIso8601String(),
-      'endDate': instance.endDate?.toIso8601String(),
-      'seasonPeriod': _$SeasonPeriodEnumEnumMap[instance.seasonPeriod],
-      'seasonYear': instance.seasonYear,
-      'episodesCount': instance.episodesCount,
-      'episodeDuration': instance.episodeDuration,
-      'trailerUrl': instance.trailerUrl,
+      'start_date': instance.startDate?.toIso8601String(),
+      'end_date': instance.endDate?.toIso8601String(),
+      'season_period': _$SeasonPeriodEnumEnumMap[instance.seasonPeriod],
+      'season_year': instance.seasonYear,
+      'episodes_count': instance.episodesCount,
+      'episode_duration': instance.episodeDuration,
+      'trailer_url': instance.trailerUrl,
       'cover_image': instance.coverImageUrl,
-      'coverColor': const ColorSerialiser().toJson(instance.coverColor),
+      'cover_color': const ColorSerialiser().toJson(instance.coverColor),
       'banner_image': instance.bannerImageUrl,
       'genres': instance.genres,
       'sequel': instance.sequel,
