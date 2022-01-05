@@ -4,5 +4,6 @@
     "errGetData": "Data retrieval error",
     "loading": "Loading...",
     "nothingFound": "Nothing found",
-    "searchName": "Search Name"
+    "searchName": "Search Name",
+    "noName": "Noname"
 }

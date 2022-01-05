@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "errGetData":
             MessageLookupByLibrary.simpleMessage("Data retrieval error"),
         "loading": MessageLookupByLibrary.simpleMessage("Loading..."),
+        "noName": MessageLookupByLibrary.simpleMessage("Noname"),
         "nothingFound": MessageLookupByLibrary.simpleMessage("Nothing found"),
         "searchName": MessageLookupByLibrary.simpleMessage("Search Name")
       };

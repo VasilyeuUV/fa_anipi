@@ -12,5 +12,6 @@ class AnimeEvent with _$AnimeEvent {
     int? season,
     List<String>? genres,
     bool? nsfw,
+    int? page,
   }) = AnimeEventFetch;
 }
