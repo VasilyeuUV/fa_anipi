@@ -18,25 +18,51 @@ class AnimeListTile extends StatelessWidget {
         height: MediaQuery.of(context).size.height / 7,
         color: DefaultThemeColors.animeListTileBackground,
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CachedNetworkImage(
-              imageUrl: animeModel.coverImageUrl,
-              placeholder: (context, url) => const CircularProgressIndicator(
-                color: DefaultThemeColors.loadingColor,
-              ),
-              errorWidget: (context, url, error) => const Icon(Icons.error),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CachedNetworkImage(
+                  imageUrl: animeModel.coverImageUrl,
+                  placeholder: (context, url) =>
+                      const CircularProgressIndicator(
+                    color: DefaultThemeColors.loadingColor,
+                  ),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
+                  width: 80,
+                  height: 110,
+                ),
+              ],
             ),
-            Column(),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 15,
+                right: 5,
+                top: 5,
+                bottom: 5,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 1.5,
+                    child: Text(
+                      '$index. ${animeModel.titles["en"] ?? S.of(context).noName}',
+                      overflow: TextOverflow.ellipsis,
+                      style: Theme.of(context).textTheme.bodyText2,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-
-/*
-ListTile(
-      title: Text('$index. ${animeModel.titles["en"] ?? S.of(context).noName}'),
-    );
-*/
