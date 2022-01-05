@@ -6,6 +6,7 @@ import 'package:fa_anipi/services/anime_service/widgets/anime_list_tile.dart';
 import 'package:fa_anipi/themes/default_theme/default_theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 /// Anime search page
 class AnimeSearchPage extends StatefulWidget {
@@ -28,6 +29,12 @@ class _AnimeSearchPageState extends State<AnimeSearchPage> {
 
   /// Current search titles
   String _currentSearchString = '';
+
+  /// Controller for pagination data
+  final RefreshController refreshController = RefreshController();
+
+  /// To control data pagination
+  bool _isPagination = false;
 
   @override
   _AnimeSearchPageState createState() => _AnimeSearchPageState();
@@ -76,14 +83,14 @@ class _AnimeSearchPageState extends State<AnimeSearchPage> {
               _currentSearchString = value;
               context.read<AnimeBloc>().add(AnimeEvent.fetch(
                   title: _currentSearchString,
-                  aniListId: null,
-                  myAniListId: null,
-                  formatShow: null,
-                  status: null,
-                  year: null,
-                  season: null,
-                  genres: null,
-                  nsfw: null,
+                  // aniListId: null,
+                  // myAniListId: null,
+                  // formatShow: null,
+                  // status: null,
+                  // year: null,
+                  // season: null,
+                  // genres: null,
+                  // nsfw: null,
                   page: _currentPage));
             },
           ),
@@ -91,20 +98,32 @@ class _AnimeSearchPageState extends State<AnimeSearchPage> {
         Expanded(
           child: state.when(
             loading: () {
-              return Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const CircularProgressIndicator(strokeWidth: 2),
-                    const SizedBox(width: 10),
-                    Text(S.of(context).loading),
-                  ],
-                ),
-              );
+              // ПОДЗАГРУЗКА
+              if (!_isPagination) {
+                return Center(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const CircularProgressIndicator(strokeWidth: 2),
+                      const SizedBox(width: 10),
+                      Text(S.of(context).loading),
+                    ],
+                  ),
+                );
+              } else {
+                return _customListView(_currentAnimeModels);
+              }
             },
             loaded: (animeLoaded) {
               _currentAniApiModel = animeLoaded;
-              _currentAnimeModels = animeLoaded.data.documents;
+              // ПОДЗАГРУЗКА
+              if (_isPagination) {
+                _currentAnimeModels.addAll(_currentAniApiModel.data.documents);
+                refreshController.loadComplete();
+                _isPagination = false;
+              } else {
+                _currentAnimeModels = animeLoaded.data.documents;
+              }
               return _currentAnimeModels.isNotEmpty
                   ? _customListView(_currentAnimeModels)
                   : const SizedBox();
@@ -117,17 +136,45 @@ class _AnimeSearchPageState extends State<AnimeSearchPage> {
   }
 
   Widget _customListView(List<AnimeModel> currentAnimeModels) {
-    return ListView.separated(
-      itemBuilder: (context, index) {
-        final animeModel = currentAnimeModels[index];
-        return Padding(
-            padding:
-                const EdgeInsets.only(top: 3, bottom: 3, left: 16, right: 5),
-            child: AnimeListTile(index: index, animeModel: animeModel));
+    return SmartRefresher(
+      // ПОДЗАГРУЗКА СТРАНИЦ
+      controller: refreshController,
+      enablePullUp:
+          true, // индикатор загрузки при достижении конца списка при прокрутке вверх
+      enablePullDown:
+          false, // индикатор загрузки при достижении начала списка при прокрутке вниз
+      onLoading: () {
+        _isPagination = true;
+        _currentPage++;
+        if (_currentPage <= _currentAniApiModel.data.lastPage) {
+          context.read<AnimeBloc>().add(AnimeEvent.fetch(
+              title: _currentSearchString,
+              // aniListId: null,
+              // myAniListId: null,
+              // formatShow: null,
+              // status: null,
+              // year: null,
+              // season: null,
+              // genres: null,
+              // nsfw: null,
+              page: _currentPage));
+        } else {
+          refreshController.loadNoData();
+        }
       },
-      separatorBuilder: (_, index) => const SizedBox(height: 5),
-      itemCount: currentAnimeModels.length,
-      shrinkWrap: true, // listview занимает нужное пространство
+      // ОТОБРАЖЕНИЕ РЕЗУЛЬТАТА
+      child: ListView.separated(
+        itemBuilder: (context, index) {
+          final animeModel = currentAnimeModels[index];
+          return Padding(
+              padding:
+                  const EdgeInsets.only(top: 3, bottom: 3, left: 16, right: 5),
+              child: AnimeListTile(index: index, animeModel: animeModel));
+        },
+        separatorBuilder: (_, index) => const SizedBox(height: 5),
+        itemCount: currentAnimeModels.length,
+        shrinkWrap: true, // listview занимает нужное пространство
+      ),
     );
   }
 }
