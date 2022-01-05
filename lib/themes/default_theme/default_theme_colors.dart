@@ -12,6 +12,8 @@ class DefaultThemeColors {
   static const Color inputDecorationFillColor = Color.fromRGBO(86, 86, 86, 0.8);
   static const Color inputDecorationHintColor = Colors.white;
   static const Color inputDecorationPrefixIconColor = Colors.white;
+  static const Color animeListTileBackground = Color.fromRGBO(86, 86, 86, 0.8);
+  static const Color loadingColor = Colors.grey;
 
 // LIGHT THEME
   static const Color primaryColorLight = Colors.purple;

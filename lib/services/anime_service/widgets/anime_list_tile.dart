@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fa_anipi/generated/l10n.dart';
 import 'package:fa_anipi/services/anime_service/models/anime_model.dart';
+import 'package:fa_anipi/themes/default_theme/default_theme_colors.dart';
 import 'package:flutter/material.dart';
 
 class AnimeListTile extends StatelessWidget {
@@ -10,8 +12,31 @@ class AnimeListTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text('$index. ${animeModel.titles["en"] ?? S.of(context).noName}'),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(15),
+      child: Container(
+        height: MediaQuery.of(context).size.height / 7,
+        color: DefaultThemeColors.animeListTileBackground,
+        child: Row(
+          children: [
+            CachedNetworkImage(
+              imageUrl: animeModel.coverImageUrl,
+              placeholder: (context, url) => const CircularProgressIndicator(
+                color: DefaultThemeColors.loadingColor,
+              ),
+              errorWidget: (context, url, error) => const Icon(Icons.error),
+            ),
+            Column(),
+          ],
+        ),
+      ),
     );
   }
 }
+
+
+/*
+ListTile(
+      title: Text('$index. ${animeModel.titles["en"] ?? S.of(context).noName}'),
+    );
+*/

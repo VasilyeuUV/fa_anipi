@@ -122,7 +122,7 @@ class _AnimeSearchPageState extends State<AnimeSearchPage> {
         final animeModel = currentAnimeModels[index];
         return Padding(
             padding:
-                const EdgeInsets.only(top: 3, bottom: 3, left: 16, right: 16),
+                const EdgeInsets.only(top: 3, bottom: 3, left: 16, right: 5),
             child: AnimeListTile(index: index, animeModel: animeModel));
       },
       separatorBuilder: (_, index) => const SizedBox(height: 5),
