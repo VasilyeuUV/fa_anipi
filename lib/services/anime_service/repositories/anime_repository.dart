@@ -58,7 +58,7 @@ class AnimeRepository {
 
       var result = AniApiModel.fromJson(jsonResult);
       if (kDebugMode) {
-        print(result);
+        // print(result);
       }
 
       return result;
