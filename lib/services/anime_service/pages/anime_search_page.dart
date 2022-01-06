@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:fa_anipi/generated/l10n.dart';
 import 'package:fa_anipi/services/anime_service/bloc/anime_bloc.dart';
 import 'package:fa_anipi/services/anime_service/models/aniapi_model.dart';
@@ -36,8 +38,8 @@ class _AnimeSearchPageState extends State<AnimeSearchPage> {
   /// To control data pagination
   bool _isPagination = false;
 
-  @override
-  _AnimeSearchPageState createState() => _AnimeSearchPageState();
+  /// Задержка перед отображением после ввода в строку поиска
+  Timer? searchDebounce;
 
   @override
   void initState() {
@@ -81,17 +83,22 @@ class _AnimeSearchPageState extends State<AnimeSearchPage> {
               _currentPage = 1;
               _currentAnimeModels = [];
               _currentSearchString = value;
-              context.read<AnimeBloc>().add(AnimeEvent.fetch(
-                  title: _currentSearchString,
-                  // aniListId: null,
-                  // myAniListId: null,
-                  // formatShow: null,
-                  // status: null,
-                  // year: null,
-                  // season: null,
-                  // genres: null,
-                  // nsfw: null,
-                  page: _currentPage));
+
+              // задержка при вводе в строке поиска
+              searchDebounce?.cancel();
+              searchDebounce = Timer(const Duration(milliseconds: 500), () {
+                context.read<AnimeBloc>().add(AnimeEvent.fetch(
+                    title: _currentSearchString,
+                    // aniListId: null,
+                    // myAniListId: null,
+                    // formatShow: null,
+                    // status: null,
+                    // year: null,
+                    // season: null,
+                    // genres: null,
+                    // nsfw: null,
+                    page: _currentPage));
+              });
             },
           ),
         ),
