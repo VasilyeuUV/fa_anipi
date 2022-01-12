@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'anime_model.dart';
+import '../anime_model/anime_model.dart';
 
 part 'anidata_model.freezed.dart'; // freezed
 part 'anidata_model.g.dart'; // json

@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:fa_anipi/generated/l10n.dart';
-import 'package:fa_anipi/services/anime_service/bloc/anime_bloc.dart';
-import 'package:fa_anipi/services/anime_service/models/aniapi_model.dart';
-import 'package:fa_anipi/services/anime_service/models/anime_model.dart';
-import 'package:fa_anipi/services/anime_service/widgets/anime_list_tile.dart';
+import 'package:fa_anipi/modules/anime_module/bloc/anime_bloc.dart';
+import 'package:fa_anipi/modules/anime_module/models/aniapi_model/aniapi_model.dart';
+import 'package:fa_anipi/modules/anime_module/models/anime_model/anime_model.dart';
+import 'package:fa_anipi/modules/anime_module/widgets/anime_list_tile.dart';
 import 'package:fa_anipi/themes/default_theme/default_theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

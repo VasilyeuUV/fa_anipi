@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fa_anipi/generated/l10n.dart';
-import 'package:fa_anipi/services/anime_service/models/anime_model.dart';
+import 'package:fa_anipi/modules/anime_module/models/anime_model/anime_model.dart';
 import 'package:fa_anipi/themes/default_theme/default_theme_colors.dart';
 import 'package:flutter/material.dart';
 

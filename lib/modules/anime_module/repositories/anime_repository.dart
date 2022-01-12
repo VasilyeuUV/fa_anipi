@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:fa_anipi/services/anime_service/models/aniapi_model.dart';
+import 'package:fa_anipi/modules/anime_module/models/aniapi_model/aniapi_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
