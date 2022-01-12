@@ -26,7 +26,8 @@ class _$AnimeEventTearOff {
       int? year,
       int? season,
       List<String>? genres,
-      bool? nsfw}) {
+      bool? nsfw,
+      int? page}) {
     return AnimeEventFetch(
       title: title,
       aniListId: aniListId,
@@ -37,6 +38,7 @@ class _$AnimeEventTearOff {
       season: season,
       genres: genres,
       nsfw: nsfw,
+      page: page,
     );
   }
 }
@@ -55,6 +57,7 @@ mixin _$AnimeEvent {
   int? get season => throw _privateConstructorUsedError;
   List<String>? get genres => throw _privateConstructorUsedError;
   bool? get nsfw => throw _privateConstructorUsedError;
+  int? get page => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -67,7 +70,8 @@ mixin _$AnimeEvent {
             int? year,
             int? season,
             List<String>? genres,
-            bool? nsfw)
+            bool? nsfw,
+            int? page)
         fetch,
   }) =>
       throw _privateConstructorUsedError;
@@ -82,7 +86,8 @@ mixin _$AnimeEvent {
             int? year,
             int? season,
             List<String>? genres,
-            bool? nsfw)?
+            bool? nsfw,
+            int? page)?
         fetch,
   }) =>
       throw _privateConstructorUsedError;
@@ -97,7 +102,8 @@ mixin _$AnimeEvent {
             int? year,
             int? season,
             List<String>? genres,
-            bool? nsfw)?
+            bool? nsfw,
+            int? page)?
         fetch,
     required TResult orElse(),
   }) =>
@@ -138,7 +144,8 @@ abstract class $AnimeEventCopyWith<$Res> {
       int? year,
       int? season,
       List<String>? genres,
-      bool? nsfw});
+      bool? nsfw,
+      int? page});
 }
 
 /// @nodoc
@@ -160,6 +167,7 @@ class _$AnimeEventCopyWithImpl<$Res> implements $AnimeEventCopyWith<$Res> {
     Object? season = freezed,
     Object? genres = freezed,
     Object? nsfw = freezed,
+    Object? page = freezed,
   }) {
     return _then(_value.copyWith(
       title: title == freezed
@@ -198,6 +206,10 @@ class _$AnimeEventCopyWithImpl<$Res> implements $AnimeEventCopyWith<$Res> {
           ? _value.nsfw
           : nsfw // ignore: cast_nullable_to_non_nullable
               as bool?,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -218,7 +230,8 @@ abstract class $AnimeEventFetchCopyWith<$Res>
       int? year,
       int? season,
       List<String>? genres,
-      bool? nsfw});
+      bool? nsfw,
+      int? page});
 }
 
 /// @nodoc
@@ -242,6 +255,7 @@ class _$AnimeEventFetchCopyWithImpl<$Res> extends _$AnimeEventCopyWithImpl<$Res>
     Object? season = freezed,
     Object? genres = freezed,
     Object? nsfw = freezed,
+    Object? page = freezed,
   }) {
     return _then(AnimeEventFetch(
       title: title == freezed
@@ -280,6 +294,10 @@ class _$AnimeEventFetchCopyWithImpl<$Res> extends _$AnimeEventCopyWithImpl<$Res>
           ? _value.nsfw
           : nsfw // ignore: cast_nullable_to_non_nullable
               as bool?,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -296,7 +314,8 @@ class _$AnimeEventFetch implements AnimeEventFetch {
       this.year,
       this.season,
       this.genres,
-      this.nsfw});
+      this.nsfw,
+      this.page});
 
   @override
   final String? title;
@@ -316,10 +335,12 @@ class _$AnimeEventFetch implements AnimeEventFetch {
   final List<String>? genres;
   @override
   final bool? nsfw;
+  @override
+  final int? page;
 
   @override
   String toString() {
-    return 'AnimeEvent.fetch(title: $title, aniListId: $aniListId, myAniListId: $myAniListId, formatShow: $formatShow, status: $status, year: $year, season: $season, genres: $genres, nsfw: $nsfw)';
+    return 'AnimeEvent.fetch(title: $title, aniListId: $aniListId, myAniListId: $myAniListId, formatShow: $formatShow, status: $status, year: $year, season: $season, genres: $genres, nsfw: $nsfw, page: $page)';
   }
 
   @override
@@ -337,7 +358,8 @@ class _$AnimeEventFetch implements AnimeEventFetch {
             const DeepCollectionEquality().equals(other.year, year) &&
             const DeepCollectionEquality().equals(other.season, season) &&
             const DeepCollectionEquality().equals(other.genres, genres) &&
-            const DeepCollectionEquality().equals(other.nsfw, nsfw));
+            const DeepCollectionEquality().equals(other.nsfw, nsfw) &&
+            const DeepCollectionEquality().equals(other.page, page));
   }
 
   @override
@@ -351,7 +373,8 @@ class _$AnimeEventFetch implements AnimeEventFetch {
       const DeepCollectionEquality().hash(year),
       const DeepCollectionEquality().hash(season),
       const DeepCollectionEquality().hash(genres),
-      const DeepCollectionEquality().hash(nsfw));
+      const DeepCollectionEquality().hash(nsfw),
+      const DeepCollectionEquality().hash(page));
 
   @JsonKey(ignore: true)
   @override
@@ -370,11 +393,12 @@ class _$AnimeEventFetch implements AnimeEventFetch {
             int? year,
             int? season,
             List<String>? genres,
-            bool? nsfw)
+            bool? nsfw,
+            int? page)
         fetch,
   }) {
     return fetch(title, aniListId, myAniListId, formatShow, status, year,
-        season, genres, nsfw);
+        season, genres, nsfw, page);
   }
 
   @override
@@ -389,11 +413,12 @@ class _$AnimeEventFetch implements AnimeEventFetch {
             int? year,
             int? season,
             List<String>? genres,
-            bool? nsfw)?
+            bool? nsfw,
+            int? page)?
         fetch,
   }) {
     return fetch?.call(title, aniListId, myAniListId, formatShow, status, year,
-        season, genres, nsfw);
+        season, genres, nsfw, page);
   }
 
   @override
@@ -408,13 +433,14 @@ class _$AnimeEventFetch implements AnimeEventFetch {
             int? year,
             int? season,
             List<String>? genres,
-            bool? nsfw)?
+            bool? nsfw,
+            int? page)?
         fetch,
     required TResult orElse(),
   }) {
     if (fetch != null) {
       return fetch(title, aniListId, myAniListId, formatShow, status, year,
-          season, genres, nsfw);
+          season, genres, nsfw, page);
     }
     return orElse();
   }
@@ -458,7 +484,8 @@ abstract class AnimeEventFetch implements AnimeEvent {
       int? year,
       int? season,
       List<String>? genres,
-      bool? nsfw}) = _$AnimeEventFetch;
+      bool? nsfw,
+      int? page}) = _$AnimeEventFetch;
 
   @override
   String? get title;
@@ -478,6 +505,8 @@ abstract class AnimeEventFetch implements AnimeEvent {
   List<String>? get genres;
   @override
   bool? get nsfw;
+  @override
+  int? get page;
   @override
   @JsonKey(ignore: true)
   $AnimeEventFetchCopyWith<AnimeEventFetch> get copyWith =>

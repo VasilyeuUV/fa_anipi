@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `APPS TITLE`
+  /// `ANI API`
   String get appTitle {
     return Intl.message(
-      'APPS TITLE',
+      'ANI API',
       name: 'appTitle',
       desc: '',
       args: [],
@@ -65,6 +65,16 @@ class S {
     return Intl.message(
       'AppBar Title',
       name: 'appBarTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Data retrieval error`
+  String get errGetData {
+    return Intl.message(
+      'Data retrieval error',
+      name: 'errGetData',
       desc: '',
       args: [],
     );
@@ -85,6 +95,26 @@ class S {
     return Intl.message(
       'Nothing found',
       name: 'nothingFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search Name`
+  String get searchName {
+    return Intl.message(
+      'Search Name',
+      name: 'searchName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Noname`
+  String get noName {
+    return Intl.message(
+      'Noname',
+      name: 'noName',
       desc: '',
       args: [],
     );

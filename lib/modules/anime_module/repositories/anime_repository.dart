@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:fa_anipi/services/anime_service/models/aniapi_model.dart';
+import 'package:fa_anipi/modules/anime_module/models/aniapi_model/aniapi_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
@@ -18,6 +18,7 @@ class AnimeRepository {
     int? season,
     List<String>? genres,
     bool? nsfw = true,
+    int? page,
   ]) async {
     //String? formats = formatShow?.map((i) => i.toString()).join(",");
     //String? genreses = genres?.map((i) => i.toString()).join(",");
@@ -35,6 +36,7 @@ class AnimeRepository {
         ? ''
         : '&genres=${genres.map((i) => i.toString()).join(",")}';
     String? _sNsfw = nsfw == null ? '' : '&nsfw=$nsfw';
+    String? _sPage = page == null ? '' : '&page=$page';
 
     String? _parameters = _sTitle +
         _sAniListId +
@@ -44,7 +46,8 @@ class AnimeRepository {
         _sYear +
         _sSeason +
         _sGenres +
-        _sNsfw;
+        _sNsfw +
+        _sPage;
     if (_parameters.isNotEmpty) {
       _parameters = '?' + _parameters.substring(1);
     }
@@ -55,7 +58,7 @@ class AnimeRepository {
 
       var result = AniApiModel.fromJson(jsonResult);
       if (kDebugMode) {
-        print(result);
+        // print(result);
       }
 
       return result;

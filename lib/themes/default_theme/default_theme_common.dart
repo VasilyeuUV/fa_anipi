@@ -41,6 +41,18 @@ final defaultThemeCommon = ThemeData(
 
   floatingActionButtonTheme: const FloatingActionButtonThemeData(),
 
+  inputDecorationTheme: InputDecorationTheme(
+    filled: true,
+    fillColor: DefaultThemeColors.inputDecorationFillColor,
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10.0),
+      borderSide: BorderSide.none,
+    ),
+    hintStyle:
+        const TextStyle(color: DefaultThemeColors.inputDecorationHintColor),
+    prefixIconColor: DefaultThemeColors.inputDecorationPrefixIconColor,
+  ),
+
   buttonTheme: ButtonThemeData(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(18.0),

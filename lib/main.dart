@@ -2,16 +2,21 @@ import 'package:fa_anipi/constants/const.dart';
 import 'package:fa_anipi/themes/theme_manager.dart';
 import 'package:fa_anipi/ui/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'generated/l10n.dart';
+import 'modules/anime_module/bloc/aniapi_bloc_observable.dart';
 import 'themes/default_theme/default_theme.dart';
 
 void main() {
-  runApp(
-    const Const(
-      child: App(),
+  BlocOverrides.runZoned(
+    () => runApp(
+      const Const(
+        child: App(),
+      ),
     ),
+    blocObserver: AniApiBlocObservable(),
   );
 }
 

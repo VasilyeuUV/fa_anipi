@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'anidata_model.dart';
+import '../anidata_model/anidata_model.dart';
 
 part 'aniapi_model.freezed.dart'; // freezed
 part 'aniapi_model.g.dart'; // json

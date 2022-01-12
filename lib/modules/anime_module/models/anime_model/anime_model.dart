@@ -1,9 +1,9 @@
 // ignore_for_file: invalid_annotation_target
 
-import 'package:fa_anipi/services/anime_service/infrastructure/enums/format_show_enum.dart';
-import 'package:fa_anipi/services/anime_service/infrastructure/enums/season_period_enum.dart';
-import 'package:fa_anipi/services/anime_service/infrastructure/enums/status_enum.dart';
-import 'package:fa_anipi/services/anime_service/infrastructure/serialisers/color_serialiser.dart';
+import 'package:fa_anipi/modules/anime_module/infrastructure/enums/format_show_enum.dart';
+import 'package:fa_anipi/modules/anime_module/infrastructure/enums/season_period_enum.dart';
+import 'package:fa_anipi/modules/anime_module/infrastructure/enums/status_enum.dart';
+import 'package:fa_anipi/modules/anime_module/infrastructure/serialisers/color_serialiser.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

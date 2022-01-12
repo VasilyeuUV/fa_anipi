@@ -1,6 +1,9 @@
 {
-    "appTitle": "APPS TITLE",
+    "appTitle": "ANI API",
     "appBarTitle": "AppBar Title",
+    "errGetData": "Data retrieval error",
     "loading": "Loading...",
-    "nothingFound": "Nothing found"
+    "nothingFound": "Nothing found",
+    "searchName": "Search Name",
+    "noName": "Noname"
 }
