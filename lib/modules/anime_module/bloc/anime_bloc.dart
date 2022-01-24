@@ -1,3 +1,5 @@
+import 'package:fa_anipi/modules/anime_module/dio_retrofit/dio/anime_provider.dart';
+import 'package:fa_anipi/modules/anime_module/dio_retrofit/retrofit/aniapi_r_model.dart';
 import 'package:fa_anipi/modules/anime_module/models/aniapi_model/aniapi_model.dart';
 import 'package:fa_anipi/modules/anime_module/repositories/anime_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +11,8 @@ part 'anime_event.dart';
 part 'anime_state.dart';
 
 class AnimeBloc extends Bloc<AnimeEvent, AnimeState> {
-  final AnimeRepository animeRepository;
+  //final AnimeRepository animeRepository;
+  final AnimeProvider animeRepository;
 
   /// CTOR
   AnimeBloc({required this.animeRepository})
@@ -17,7 +20,7 @@ class AnimeBloc extends Bloc<AnimeEvent, AnimeState> {
     on<AnimeEventFetch>((event, emit) async {
       emit(const AnimeState.loading());
       try {
-        AniApiModel _animeModelLoaded = await animeRepository
+        var result = (await animeRepository
             .getAnime(
                 event.title,
                 event.aniListId,
@@ -29,7 +32,8 @@ class AnimeBloc extends Bloc<AnimeEvent, AnimeState> {
                 event.genres,
                 event.nsfw,
                 event.page)
-            .timeout(const Duration(seconds: 5));
+            .timeout(const Duration(seconds: 5)));
+        AniApiModel _animeModelLoaded = result!.cast();
         emit(AnimeState.loaded(animeLoaded: _animeModelLoaded));
       } on Exception catch (_) {
         emit(const AnimeState.error());
