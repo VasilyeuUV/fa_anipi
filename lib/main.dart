@@ -1,4 +1,5 @@
 import 'package:fa_anipi/constants/const.dart';
+import 'package:fa_anipi/navigation/getPages.dart';
 import 'package:fa_anipi/pages/about_page.dart';
 import 'package:fa_anipi/pages/home_page.dart';
 import 'package:fa_anipi/pages/pages_list.dart';
@@ -67,9 +68,6 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    NavigationController navigationController =
-        Provider.of<NavigationController>(context);
-
     return MaterialApp(
       localizationsDelegates: const [
         S.delegate,
@@ -83,14 +81,7 @@ class _AppState extends State<App> {
       darkTheme: _currentTheme.darkTheme,
       themeMode: themeManager.themeMode,
       home: Navigator(
-        pages: [
-          //MaterialPage(child: PagesList(themeManager: themeManager)),
-          MaterialPage(child: HomePage(themeManager: themeManager)),
-          if (navigationController.pageName == '/settings')
-            const MaterialPage(child: SettingsPage()),
-          if (navigationController.pageName == '/about')
-            const MaterialPage(child: AboutPage()),
-        ],
+        pages: getPages(context, themeManager),
         onPopPage: (route, result) {
           bool popStatus = route.didPop(result);
           if (popStatus) {
