@@ -1,19 +1,33 @@
 import 'package:fa_anipi/constants/const.dart';
+import 'package:fa_anipi/navigation/getPages.dart';
+import 'package:fa_anipi/pages/about_page.dart';
+import 'package:fa_anipi/pages/home_page.dart';
+import 'package:fa_anipi/pages/pages_list.dart';
+import 'package:fa_anipi/pages/settings_page.dart';
 import 'package:fa_anipi/themes/theme_manager.dart';
-import 'package:fa_anipi/ui/pages/home_page.dart';
+//import 'package:fa_anipi/pages/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:provider/provider.dart';
 
 import 'generated/l10n.dart';
 import 'modules/anime_module/bloc/aniapi_bloc_observable.dart';
+import 'navigation/navigation_controller.dart';
 import 'themes/default_theme/default_theme.dart';
 
 void main() {
   BlocOverrides.runZoned(
     () => runApp(
-      const Const(
-        child: App(),
+      MultiProvider(
+        providers: [
+          ListenableProvider<NavigationController>(
+            create: (_) => NavigationController(),
+          )
+        ],
+        child: const Const(
+          child: App(),
+        ),
       ),
     ),
     blocObserver: AniApiBlocObservable(),
@@ -66,7 +80,17 @@ class _AppState extends State<App> {
       theme: _currentTheme.lightTheme,
       darkTheme: _currentTheme.darkTheme,
       themeMode: themeManager.themeMode,
-      home: HomePage(themeManager: themeManager),
+      home: Navigator(
+        pages: getPages(context, themeManager),
+        onPopPage: (route, result) {
+          bool popStatus = route.didPop(result);
+          if (popStatus) {
+            Provider.of<NavigationController>(context, listen: false)
+                .changePage('/');
+          }
+          return popStatus;
+        },
+      ),
     );
   }
 }
