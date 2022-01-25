@@ -50,21 +50,31 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `ANI API`
-  String get appTitle {
+  /// `About`
+  String get about {
     return Intl.message(
-      'ANI API',
-      name: 'appTitle',
+      'About',
+      name: 'about',
       desc: '',
       args: [],
     );
   }
 
-  /// `AppBar Title`
+  /// `ANI API`
   String get appBarTitle {
     return Intl.message(
-      'AppBar Title',
+      'ANI API',
       name: 'appBarTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ANI API`
+  String get appTitle {
+    return Intl.message(
+      'ANI API',
+      name: 'appTitle',
       desc: '',
       args: [],
     );
@@ -80,11 +90,31 @@ class S {
     );
   }
 
+  /// `Home`
+  String get home {
+    return Intl.message(
+      'Home',
+      name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Loading...`
   String get loading {
     return Intl.message(
       'Loading...',
       name: 'loading',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Noname`
+  String get noName {
+    return Intl.message(
+      'Noname',
+      name: 'noName',
       desc: '',
       args: [],
     );
@@ -110,11 +140,11 @@ class S {
     );
   }
 
-  /// `Noname`
-  String get noName {
+  /// `Settings`
+  String get settings {
     return Intl.message(
-      'Noname',
-      name: 'noName',
+      'Settings',
+      name: 'settings',
       desc: '',
       args: [],
     );

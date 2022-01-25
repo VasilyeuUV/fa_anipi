@@ -1,9 +1,12 @@
 {
+    "about": "About",
+    "appBarTitle": "ANI API",    
     "appTitle": "ANI API",
-    "appBarTitle": "AppBar Title",
     "errGetData": "Data retrieval error",
+    "home": "Home",
     "loading": "Loading...",
+    "noName": "Noname",
     "nothingFound": "Nothing found",
     "searchName": "Search Name",
-    "noName": "Noname"
+    "settings": "Settings"
 }
