@@ -1,5 +1,6 @@
 {
     "about": "About",
+    "anime": "Anime",
     "appBarTitle": "ANI API",    
     "appTitle": "ANI API",
     "errGetData": "Data retrieval error",
