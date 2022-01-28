@@ -60,6 +60,16 @@ class S {
     );
   }
 
+  /// `Anime`
+  String get anime {
+    return Intl.message(
+      'Anime',
+      name: 'anime',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `ANI API`
   String get appBarTitle {
     return Intl.message(
